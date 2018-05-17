@@ -1,0 +1,50 @@
+<div class="col-md-8">
+	<h2>Existing Item Data</h2>
+	<a href="#">New Item</a>
+	<br>
+	<br> {{!-- Datatable which will hold data from our database --}}
+	<table id="item-data" class="display">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>UPC</th>
+				<th>Model</th>
+				<th>Title</th>
+				<th>MSRP</th>
+			</tr>
+		</thead>
+		<tbody id="dataTable">
+
+		</tbody>
+	</table>
+</div>
+
+
+{{!-- Link to barcodes.js file in public/assets folder --}}
+<script src="/assets/js/amazonapi.js"></script> {{!-- Link to barcodes.js file in public/assets folder --}}
+<script src="/assets/js/walmartapi.js"></script>
+<script src="bower_components/crypto-js/crypto-js.js"></script>
+<script src="bower_components/crypto-js/enc-base64.js"></script> {{!-- Scripts for the Datatables --}} {{!-- Datatables jquery link --}}
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<!-- Datatables CSS -->
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"> {{!-- Scripts to make the Javascript run --}}
+<script>
+	$(document).ready(function () {
+		$.get("/api/allitems/", function (data) {
+
+			console.log('item data', data);
+
+			$('#item-data').DataTable({
+				data: data,
+				columns: [
+					{ data: 'id' },
+					{ data: 'upc' },
+					{ data: 'model' },
+					{ data: 'title' },
+					{ data: 'msrp' }
+				]
+			});
+
+		});
+	});
+</script>

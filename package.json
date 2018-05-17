@@ -1,0 +1,33 @@
+{
+  "name": "barcode",
+  "version": "1.0.0",
+  "description": "Quickly input product into inventory and make it available to consumers. Keep track of who inputted and edited the product for productivity and accountability reasons. Keep track of where the product came from to help answere questions like: which vendors are profitable, should renegotiations be persued, or should business be discontinued with the vendor. Track costs back to every item to help with profitability.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tombene/barcode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tombene/barcode/issues"
+  },
+  "homepage": "https://github.com/tombene/barcode#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "jsonwebtoken": "^8.2.1",
+    "mocha": "^5.1.1",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.3",
+    "nightmare": "^3.0.1",
+    "sequelize": "^4.37.7"
+  }
+}

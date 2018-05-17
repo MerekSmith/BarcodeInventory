@@ -1,0 +1,46 @@
+{{> nav/navbar}}
+
+
+<div class="container">
+<h1>All Categories</h1>
+<br>
+<table id="category-data" class="display">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Parent Id</th>
+			<th>Name</th>
+			<th>Level</th>
+			<th>Trail</th>
+		</tr>
+	</thead>
+	<tbody id="dataTable">
+
+	</tbody>
+</table>
+</div>
+
+{{!-- Scripts for the Datatables --}} {{!-- Datatables jquery link --}}
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<!-- Datatables CSS -->
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"> {{!-- Scripts to make the Javascript run --}}
+<script>
+	$(document).ready(function () {
+		$.get("/api/categories/", function (data) {
+		
+			console.log('category data', data);
+
+			$('#category-data').DataTable({
+				data: data,
+				columns: [
+					{ data: 'id' },
+					{ data: 'parentId' },
+					{ data: 'name' },
+					{ data: 'level' },
+					{ data: 'trail' }
+				]
+			});
+
+		});
+	});
+</script>

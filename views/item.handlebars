@@ -1,0 +1,60 @@
+{{> nav/navbar}}
+
+
+<h1>Item Creation!</h1>
+
+<div class="container-fluid">
+	<div class="row item">
+		{{!-- Div with 4 space for item creation form --}}
+		<div class="col-md-4 item-form">
+			<h2>Creation Form</h2>
+			<form id="itemForm" enctype="multipart/form-data" method="POST">
+				<div class="form-group">
+					<label for="upc">UPC</label>
+					<input type="text" class="form-control" name="upc" id="upc" placeholder="UPC">
+				</div>
+				<div class="form-group">
+					<label for="model">Model</label>
+					<input type="text" class="form-control" name="model" id="model" placeholder="Model">
+				</div>
+				<div class="form-group">
+					<label for="title">Title</label>
+					<input type="text" class="form-control" name="title" id="title" placeholder="Title">
+				</div>
+				<div class="form-group">
+					<label for="Category">Category</label>
+					<select class="form-control" name="category" id="category" placeholder="Category">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+				{{!--
+				<div class="form-group">
+					<label for="exampleFormControlSelect2">Example multiple select</label>
+					<select multiple class="form-control" id="exampleFormControlSelect2">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div> --}}
+				<div class="form-group">
+					<label for="exampleFormControlTextarea1">Description</label>
+					<textarea class="form-control" id="exampleFormControlTextarea1" name="exampleFormControlTextarea1" rows="3"></textarea>
+				</div>
+				{{!-- File upload option for images. --}}
+				<div class="form-group">
+					<label for="exampleFormControlFile1">Upload Images Here</label>
+					<input type="file" class="form-control-file" id="imageUpload" name="imageUpload">
+				</div>
+				<button type="submit" class="btn btn-primary" id="saveItem">Save</button>
+			</form>
+		</div>
+		{{!-- The below partial will pull in the col-8 portion which will either hold the table of our database information or 2x
+		col-4 sections which will hold the Amazon and Walmart api results --}} {{> item/itemform}}
+	</div>
+</div>
