@@ -1,7 +1,7 @@
 {
 	"development": {
 		"username": "root",
-		"password": "17Lily!7h",
+		"password": "password",
 		"database": "enterprisedb",
 		"host": "127.0.0.1",
 		"dialect": "mysql"
