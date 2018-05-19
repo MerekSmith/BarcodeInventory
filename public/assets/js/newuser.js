@@ -23,18 +23,18 @@ $(function () {
 			}).then(
 				// console.log("success");
 				// location.reload()
-				$("#inputUserName").empty();
-				$("#inputEmail4").empty();
-				$("#inputPassword4").empty();
-				$("#inputFirstName").empty();
-				$("#inputLastName").empty();
-				$("#inputAddress").empty();
-				$("#inputAddress2").empty();
-				$("#inputCity").empty();
-				$("#inputState").empty();
-				$("#inputZip").empty();
-				$("#success").append("Saved Successfully! Create Another?");
-			
+				$("#inputUserName").empty(),
+				$("#inputEmail4").empty(),
+				$("#inputPassword4").empty(),
+				$("#inputFirstName").empty(),
+				$("#inputLastName").empty(),
+				$("#inputAddress").empty(),
+				$("#inputAddress2").empty(),
+				$("#inputCity").empty(),
+				$("#inputState").empty(),
+				$("#inputZip").empty(),
+				$("#success").append("Saved Successfully! Create Another?")
+			)
 		} else {
 			$("#inputUserName").focus();
 		}
