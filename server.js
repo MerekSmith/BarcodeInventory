@@ -1,3 +1,4 @@
+require("dotenv").config();
 // NPM Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -27,11 +28,10 @@ app.set("view engine", "handlebars");
 require("./controllers/barcode_controller.js")(app);
 require("./controllers/image_controller.js")(app);
 
-
 // Starts the server to begin listening
 // =============================================================
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

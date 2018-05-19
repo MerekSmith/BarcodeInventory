@@ -8,11 +8,6 @@ module.exports = function (sequelize, DataTypes) {
 			primaryKey: true,
 			autoIncrement: true
 		},
-		rowversion: {
-			type: DataTypes.DATE,
-			allowNull: false,
-			defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-		},
 		parentId: {
 			type: DataTypes.BIGINT,
 			allowNull: true

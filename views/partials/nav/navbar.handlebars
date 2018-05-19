@@ -22,7 +22,7 @@
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-				 aria-expanded="false">Dropdown</a>
+				 aria-expanded="false">Tools</a>
 				<div class="dropdown-menu" aria-labelledby="dropdown04">
 					<a class="dropdown-item" href="/categories">Categories</a>
 					<a class="dropdown-item" href="#">Create Vender</a>
@@ -32,12 +32,19 @@
 					<a class="dropdown-item" href="/newUser">Create User</a>
 				</div>
 			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
+				 aria-expanded="false">User Admin</a>
+				<div class="dropdown-menu" aria-labelledby="dropdown04">
+					<a class="dropdown-item" href="/newUser">Create User</a>
+				</div>
+			</li>
 
 		</ul>
 		{{!-- Search bar --}}
-		<form class="form-inline my-2 my-md-0">
+		{{!-- <form class="form-inline my-2 my-md-0">
 			<input class="form-control" type="text" placeholder="Search">
-		</form>
+		</form> --}}
 		{{!-- End of search bar --}}
 
 		<ul class="navbar-nav">
@@ -47,7 +54,7 @@
 				{{!-- TODO: Add user name above --}}
 				<div class="dropdown-menu" aria-labelledby="signedIn">
 					<a class="dropdown-item" href="#">Account Profile</a>
-					<a class="dropdown-item" href="#">Log Out</a>
+					<a class="dropdown-item" href="/logout" id="logout">Log Out</a>
 				</div>
 			</li>
 		</ul>

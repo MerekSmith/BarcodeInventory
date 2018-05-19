@@ -1,63 +1,27 @@
+ {{!-- Login form --}}
 
-{{!-- Login form --}}
 <body id="signinBody" class="text-center">
 	<form class="form-signin">
 		<img class="mb-4" src="assets/images/barcode-scanner.jpg" alt="" width="72" height="72">
 		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 		<label for="username" class="sr-only">Username</label>
-		<input type="text" class="form-control" id="username" placeholder="Username" required="" autofocus="">
+		<input type="text" class="form-control" name="email" id="username" placeholder="Username" required="" autofocus="">
 		<label for="password" class="sr-only">Password</label>
-		<input type="password" id="password" class="form-control" placeholder="Password" required="">
+		<input type="password" name="password" id="password" class="form-control" placeholder="Password" required="">
 		<div class="checkbox mb-3">
 			<label>
 				<input type="checkbox" value="remember-me"> Remember me
 			</label>
 		</div>
-		<button class="btn btn-lg btn-primary btn-block" type="button" onclick="auth()">Sign in</button>
-		<p class="mt-5 mb-3">New User? Register <a href="newUser">Here</a></p>
+		<button class="btn btn-lg btn-primary btn-block" type="submit" id="login">Sign in</button>
+		<div id="error"></div>
+		{{!-- <p class="mt-5 mb-3">New User? Register
+			<a href="newUser">Here</a>
+		</p> --}}
 		<p class="mt-5 mb-3 text-muted">© 2017-2018</p>
 	</form>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/assets/js/login.js"></script>
 </body>
 
 
-
-<script type="text/javascript">
-	auth = function () {
-		var xhttp = new XMLHttpRequest();
-		data = { name: document.getElementById("username").value, password: document.getElementById("password").value }
-		xhttp.onreadystatechange = function () {
-			if (xhttp.readyState == 4 && xhttp.status == 200) {
-				var response = JSON.parse(xhttp.responseText);
-				document.getElementById("token-display").innerHTML = response.token;
-			}
-			if (xhttp.readyState == 4 && xhttp.status == 403) {
-				document.getElementById("token-display").innerHTML = JSON.parse(xhttp.responseText).message;
-			}
-		};
-		xhttp.open("POST", "http://localhost:3000/login", true);
-		xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
-		xhttp.send(JSON.stringify(data));
-	}
-	getlist = function () {
-		var xhttp = new XMLHttpRequest();
-		data = { token: document.getElementById("token").value }
-		xhttp.onreadystatechange = function () {
-			if (xhttp.readyState == 4 && xhttp.status == 200) {
-				var response = JSON.parse(xhttp.responseText);
-				var ul = document.createElement("ul");
-				for (var i = 0; i < response.users.length; i++) {
-					var li = document.createElement("li");
-					li.appendChild(document.createTextNode(response.users[i].name));
-					ul.appendChild(li);
-				}
-				document.getElementById("list").appendChild(ul);
-			}
-			if (xhttp.readyState == 4 && xhttp.status == 403) {
-				document.getElementById("list").innerHTML = JSON.parse(xhttp.responseText).message;
-			}
-		};
-		xhttp.open("POST", "http://localhost:3000/getusers", true);
-		xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
-		xhttp.send(JSON.stringify(data));
-	}
-</script>

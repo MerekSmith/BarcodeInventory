@@ -28,6 +28,30 @@ module.exports = function (sequelize, DataTypes) {
 			type: DataTypes.INTEGER(1),
 			allowNull: true
 		},
+		email: {
+			type: DataTypes.STRING(255),
+			allowNull: true
+		},
+		address: {
+			type: DataTypes.STRING(255),
+			allowNull: true
+		},
+		address2: {
+			type: DataTypes.STRING(255),
+			allowNull: true
+		},
+		city: {
+			type: DataTypes.STRING(255),
+			allowNull: true
+		},
+		state: {
+			type: DataTypes.STRING(255),
+			allowNull: true
+		},
+		zip: {
+			type: DataTypes.STRING(255),
+			allowNull: true
+		},
 		createdAt: {
 			type: DataTypes.DATE,
 			field: 'beginTime',

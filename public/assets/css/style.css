@@ -5,3 +5,7 @@
 .item-form {
 	border-right: 1px black solid;
 }
+
+#saveItem {
+	margin-bottom: 50px;
+}

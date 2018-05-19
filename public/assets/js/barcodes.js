@@ -9,16 +9,21 @@ $(document).ready(function () {
 			resultArray = [];
 			var searchString = $('#upc').val();
 			console.log('UPC lost focus', searchString);
+	
 			amazon.getItems(searchString);
 			walmart.getItems(searchString);
 
 			$.get("/api/upc/" + searchString, function (data) {
 				if (data) {
 					resultArray.push(data)
+					$("#model").val(data.model);
+					$("#title").val(data.title);
+					$("#category").val(data.categoryId);
+					$("#category").val(data.msrp);
+					$("textarea#exampleFormControlTextarea1").val(data.description);
 				}
 				resultArray.push(amazon.currentItem);
 				resultArray.push(walmart.currentItem);
-				console.log('model data', data);
 				console.log('data', data);
 				console.log('array', resultArray);
 
@@ -80,7 +85,7 @@ $(document).ready(function () {
 			$.get("/api/title/" + searchString, function (data) {
 				data.push(amazon.currentItem);
 				data.push(walmart.currentItem);
-				console.log('data', data);
+				console.log('title data', data);
 
 				let table = $('#item-data').DataTable();
 

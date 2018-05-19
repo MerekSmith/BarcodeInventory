@@ -16,16 +16,16 @@ module.exports = function (app) {
 			model: req.body.model,
 			title: req.body.title,
 			// category: req.body.category,
+			msrp: req.body.msrp,
 			description: req.body.description
 			// imageUpload: req.body.imageUpload
 		};
-		console.log("test 3");
+		console.log("");
 		db.cataloginfo.create(catalogData)
 			.then(function (model) {
 				code = 200;
 				message = 'OK';
 				response = 'Record is successfully added.';
-				console.log("test 4");
 				res.json({
 					code: code,
 					message: message,
